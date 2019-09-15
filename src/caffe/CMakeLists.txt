@@ -8,7 +8,11 @@ caffe_default_properties(caffeproto)
 target_link_libraries(caffeproto PUBLIC ${PROTOBUF_LIBRARIES})
 target_include_directories(caffeproto PUBLIC ${PROTOBUF_INCLUDE_DIR})
 
+
 list(INSERT Caffe_LINKER_LIBS 0 PUBLIC caffeproto) # note, crucial to prepend!
+
+
+list(APPEND Caffe_LINKER_LIBS boost_python37) # note, crucial to prepend!
 
 # --[ Caffe library
 
